@@ -42,7 +42,7 @@ module.exports = smp.wrap({
             // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
             {
                 test: /\.(tsx?)$/,
-                loader: 'ts-loader',
+                loader: 'esbuild-loader',
                 exclude: [
                     [
                         path.resolve(__dirname, 'node_modules'),
@@ -51,8 +51,8 @@ module.exports = smp.wrap({
                     ],
                 ],
                 options: {
-                    transpileOnly: true,
-                    experimentalWatchApi: true,
+                    target: 'es2020',
+                    loader: 'tsx',
                 },
             },
         ],
