@@ -33,6 +33,7 @@ module.exports = smp.wrap({
     },
     optimization: {
         concatenateModules: false,
+        minimize: slsw.lib.webpack.isLocal
     },
     target: 'node',
     externals: [nodeExternals()],
