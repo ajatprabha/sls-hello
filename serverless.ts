@@ -6,12 +6,13 @@ const serverlessConfiguration: AWS = {
     service: 'aws-nodejs-typescript',
     frameworkVersion: '2',
     custom: {
-        webpack: {
-            webpackConfig: './webpack.config.js',
-            includeModules: true,
+        esbuild: {
+            bundle: true,
+            target: 'es2020',
+            minify: process.env.NODE_ENV == 'production'
         },
     },
-    plugins: ['serverless-webpack'],
+    plugins: ['serverless-esbuild'],
     provider: {
         name: 'aws',
         runtime: 'nodejs14.x',
